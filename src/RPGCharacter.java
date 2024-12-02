@@ -242,7 +242,7 @@ class Skill {
     // เพิ่มเมธอด use() ใน Skill class
     public void use(RPGCharacter user, RPGCharacter target) {
         System.out.println(user.getName() + " used " + this.getName() + " on " + target.getName() + "!");
-        //  ในอนาคต  สามารถเพิ่ม logic การคำนวณ damage,  ผลของ skill  ฯลฯ ได้ที่นี่
+
     }
 }
 
