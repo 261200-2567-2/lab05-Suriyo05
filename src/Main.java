@@ -1,17 +1,46 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        // === สร้างตัวละครสายกายภาพ ===
+        RPGCharacter warrior = new RPGCharacter("Warrior", 1, 20, 10, 100, 15, 12, 15, 8, 8, 8);
+        Sword warriorSword = new Sword("Iron Sword", 1);
+        PlateArmor warriorArmor = new PlateArmor("Steel Plate Armor", 1);
+        warrior.equipWeapon(warriorSword);
+        warrior.equipArmor(warriorArmor);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        // === สร้างตัวละครสายเวทย์ ===
+        RPGCharacter mage = new RPGCharacter("Mage", 1, 8, 5, 100, 8, 10, 10, 15, 12, 15);
+        Staff mageStaff = new Staff("Wooden Staff", 1);
+        LeatherArmor mageArmor = new LeatherArmor("Mage Robe", 3);
+        mage.equipMagicAccessory(mageStaff);
+        mage.equipArmor(mageArmor);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        // === แสดงสถานะเริ่มต้น ===
+        System.out.println("=== Initial Stats ===");
+        System.out.println(warrior);
+        System.out.println(mage);
+
+        // === ตัวละครสายกายภาพโจมตี ===
+        System.out.println("\n=== Warrior Attacks ===");
+        warrior.attack(mage);
+
+        // === ตัวละครสายเวทย์ร่ายเวทย์ ===
+        System.out.println("\n=== Mage Casts Spell ===");
+        Spell fireball = new Spell();
+        mage.castSpell(fireball, warrior);
+
+        // === ตัวละครสายกายภาพใช้ Skill ===
+        System.out.println("\n=== Warrior Uses Skill ===");
+        Skill heavySlash = new HeavySlash();
+        warrior.useSkill(heavySlash, mage);
+        System.out.println(mage);
+
+        // === ตัวละครสายเวทย์ฟื้นฟู Mana ===
+        System.out.println("\n=== Mage Meditates ===");
+        mage.meditate();
+
+        // === แสดงสถานะหลังจากต่อสู้ ===
+        System.out.println("\n=== Stats After Battle ===");
+        System.out.println(warrior);
+        System.out.println(mage);
     }
 }
